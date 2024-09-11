@@ -10,7 +10,7 @@ import Messages from "../Messages/Messages";
 import './Chat.css';
 
 let socket;
-const ENDPOINT = process.env.ENDPOINT ||"http://localhost:5000";
+const ENDPOINT = "https://chat-app-simple-1.onrender.com";
 
 const Chat = ()=>{
     const location = useLocation();

@@ -10,7 +10,7 @@ import Messages from "../Messages/Messages";
 import './Chat.css';
 
 let socket;
-const ENDPOINT =proecess.env.ENDPOINT;
+const ENDPOINT =process.env.ENDPOINT;
 
 const Chat = ()=>{
     const location = useLocation();

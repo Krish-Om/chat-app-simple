@@ -13,7 +13,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server,{
     cors: {
-        origin: ["https://chat-app-simple-nrk10mhkt-krish-oms-projects.vercel.app"],
+        origin: ["https://chat-app-simple-eta.vercel.app"],
         methods: ['GET', 'POST'],
         Headers: ['Content-Type','Authorization'],
     }

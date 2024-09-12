@@ -11,20 +11,19 @@ const port = process.env.PORT || 5000;
 //server
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
-const origin_vercel=process.env.ALLOWED_ORIGIN_VERCEL;
-const origin_dev=process.env.ALLOWED_ORIGIN_DEV;
+const io = socketio(server,{
+    cors: {
+        origin: ["https://chat-app-simple-nrk10mhkt-krish-oms-projects.vercel.app"],
+        methods: ['GET', 'POST'],
+        Headers: ['Content-Type','Authorization'],
+    }
+});
 
-const corsOption ={
-    origin: [origin_dev,origin_vercel],
-    methods:['GET','POST'],
-    allowedHeaders :['Content-Type'],
-    credentials :true
-};
+
+app.use(cors());
 
 //router
 const router = require("./router")
-app.use(cors(corsOption));
 app.use(router);
 
 

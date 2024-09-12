@@ -13,14 +13,21 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+const corsOption ={
+    origin: "https://chat-app-simple-eta.vercel.app",
+    methods:['GET','POST'],
+    allowedHeaders :['Content-Type'],
+    credentials :true
+};
 
 //router
 const router = require("./router")
-app.use(cors())
+app.use(cors(corsOption));
 app.use(router);
 
 
 io.on("connection", (socket) => {
+
     socket.on("join", ({name, room}, callback) => {
         const {error, user} = addUser({id: socket.id, name, room});
 

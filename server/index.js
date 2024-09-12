@@ -12,9 +12,11 @@ const port = process.env.PORT || 5000;
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const origin_vercel=process.env.ALLOWED_ORIGIN_VERCEL;
+const origin_dev=process.env.ALLOWED_ORIGIN_DEV;
 
 const corsOption ={
-    origin: "https://chat-app-simple-eta.vercel.app",
+    origin: [origin_dev,origin_vercel],
     methods:['GET','POST'],
     allowedHeaders :['Content-Type'],
     credentials :true
